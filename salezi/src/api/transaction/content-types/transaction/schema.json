@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "transactions",
+  "info": {
+    "singularName": "transaction",
+    "pluralName": "transactions",
+    "displayName": "Transaction"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Product_Sold": {
+      "type": "string"
+    },
+    "Quantity_Sold": {
+      "type": "integer"
+    },
+    "Seller": {
+      "type": "string"
+    },
+    "Client": {
+      "type": "string"
+    }
+  }
+}
