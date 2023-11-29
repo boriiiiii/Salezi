@@ -362,73 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiProductProduct extends Schema.CollectionType {
-  collectionName: 'products';
-  info: {
-    singularName: 'product';
-    pluralName: 'products';
-    displayName: 'Product';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Name: Attribute.String;
-    Type: Attribute.String;
-    Price: Attribute.Integer;
-    Quantity: Attribute.Integer;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::product.product',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::product.product',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiTransactionTransaction extends Schema.CollectionType {
-  collectionName: 'transactions';
-  info: {
-    singularName: 'transaction';
-    pluralName: 'transactions';
-    displayName: 'Transaction';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Product_Sold: Attribute.String;
-    Quantity_Sold: Attribute.Integer;
-    Seller: Attribute.String;
-    Client: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::transaction.transaction',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::transaction.transaction',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -744,6 +677,188 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiBookBook extends Schema.CollectionType {
+  collectionName: 'books';
+  info: {
+    singularName: 'book';
+    pluralName: 'books';
+    displayName: 'book';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String;
+    quantity: Attribute.Integer;
+    price: Attribute.Integer;
+    author: Attribute.Enumeration<
+      [
+        'J.K. Rowling',
+        'Albert Camus',
+        'Antoine de saint-\u00E9xup\u00E9ry',
+        'Serge Bloch',
+        'Stan Lee'
+      ]
+    >;
+    type: Attribute.Enumeration<['Roman', 'BD', 'Comics']>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::book.book', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::book.book', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDvdDvd extends Schema.CollectionType {
+  collectionName: 'dvds';
+  info: {
+    singularName: 'dvd';
+    pluralName: 'dvds';
+    displayName: 'DVD';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    quantity: Attribute.Integer;
+    price: Attribute.Integer;
+    artist: Attribute.Enumeration<
+      [
+        'Damso',
+        'PNL',
+        'JUL',
+        "Sexion d'assaut",
+        'Nekfeu',
+        'XXXTENTACION',
+        'Playboi Carti',
+        'Air'
+      ]
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::dvd.dvd', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::dvd.dvd', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiElectronicElectronic extends Schema.CollectionType {
+  collectionName: 'electronics';
+  info: {
+    singularName: 'electronic';
+    pluralName: 'electronics';
+    displayName: 'Electronic';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    quantity: Attribute.Integer;
+    price: Attribute.Integer;
+    type: Attribute.Enumeration<['Laptop', 'Headphones', 'Keyboard']>;
+    brand: Attribute.Enumeration<['Apple', 'HP', 'Acer', 'Bose', 'Asus']>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::electronic.electronic',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::electronic.electronic',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSellerSeller extends Schema.CollectionType {
+  collectionName: 'sellers';
+  info: {
+    singularName: 'seller';
+    pluralName: 'sellers';
+    displayName: 'Seller';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    books: Attribute.Relation<
+      'api::seller.seller',
+      'oneToMany',
+      'api::book.book'
+    >;
+    dvds: Attribute.Relation<'api::seller.seller', 'oneToMany', 'api::dvd.dvd'>;
+    electronics: Attribute.Relation<
+      'api::seller.seller',
+      'oneToMany',
+      'api::electronic.electronic'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::seller.seller',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::seller.seller',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTransactionTransaction extends Schema.CollectionType {
+  collectionName: 'transactions';
+  info: {
+    singularName: 'transaction';
+    pluralName: 'transactions';
+    displayName: 'Transaction';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Product_Sold: Attribute.String;
+    Quantity_Sold: Attribute.Integer;
+    Seller: Attribute.String;
+    Client: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::transaction.transaction',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::transaction.transaction',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -754,14 +869,17 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::product.product': ApiProductProduct;
-      'api::transaction.transaction': ApiTransactionTransaction;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::book.book': ApiBookBook;
+      'api::dvd.dvd': ApiDvdDvd;
+      'api::electronic.electronic': ApiElectronicElectronic;
+      'api::seller.seller': ApiSellerSeller;
+      'api::transaction.transaction': ApiTransactionTransaction;
     }
   }
 }

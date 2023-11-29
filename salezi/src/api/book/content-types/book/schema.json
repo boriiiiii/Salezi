@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "books",
+  "info": {
+    "singularName": "book",
+    "pluralName": "books",
+    "displayName": "book",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "price": {
+      "type": "integer"
+    },
+    "author": {
+      "type": "enumeration",
+      "enum": [
+        "J.K. Rowling",
+        "Albert Camus",
+        "Antoine de saint-éxupéry",
+        "Serge Bloch",
+        "Stan Lee"
+      ]
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Roman",
+        "BD",
+        "Comics"
+      ]
+    }
+  }
+}
