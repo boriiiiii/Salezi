@@ -72,5 +72,9 @@ http://localhost:1337/graphql
 
 Et ensuite cochez les cases pour que ca renvoie des informations de votre database
 
+Si vous souahitez utilisé l'API la documentation est la suivante :
+
+http://localhost:1337/documentation/v1.0.0#/
+
 
 
