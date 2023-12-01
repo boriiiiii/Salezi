@@ -12,13 +12,13 @@ Pour démarrer le tableau de bord Strapi, suivez ces étapes:
 2.Clonez le dépôt:
 
 ```
-git clone https://github.com/votre-utilisateur/strapi-dashboard.git
+git clone git@github.com:boriiiiii/Salezi.git
 ```
 
-Accédez au répertoire du projet:
+3.Accédez au répertoire du projet:
 
 ```
-cd strapi-dashboard
+cd salezi
 ```
 
 4.Installez les dépendances:
@@ -49,5 +49,28 @@ Ajoutez une source de données en sélectionnant Strapi comme backend. Assurez-v
 
 Créez un tableau de bord personnalisé et commencez à explorer vos données Strapi.
 
-Utilisation
 Une fois les deux tableaux de bord démarrés, vous pouvez utiliser l'interface Strapi pour gérer vos données et Grafana pour visualiser ces données de manière graphique. Assurez-vous de consulter la documentation de chaque outil pour une utilisation plus avancée.
+
+#### Postman GraphQL
+
+##### Installation du plugin GraphQL sur Strapi :
+
+A gauche vous allez dans Marketplace,
+Chercher GraphQL
+Installer
+Redémarrer le dashboard strapi
+Vérifié dans plugins que GraphQL est bien installé
+
+##### Utilisation de GraphQL sur Postman :
+
+Crée une requete GraphQL avec le lien suivant :
+
+{localhost}/graphql
+
+Exemple :
+http://localhost:1337/graphql
+
+Et ensuite cochez les cases pour que ca renvoie des informations de votre database
+
+
+
