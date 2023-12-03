@@ -1,6 +1,6 @@
 # Salezi
 
-Bienvenue dans le projet Dashboard qui combine deux parties essentielles: un tableau de bord Strapi et une interface Grafana pour une expérience utilisateur complète.
+Bienvenue dans le projet Salezi qui combine deux parties essentielles: un tableau de bord Strapi et une interface Grafana pour une expérience utilisateur complète.
 
 ### Installation
 
